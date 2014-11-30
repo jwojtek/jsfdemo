@@ -2,6 +2,7 @@ package com.example.jsfdemo.domain;
 
 import java.util.Date;
 
+import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
@@ -9,13 +10,17 @@ import javax.validation.constraints.Size;
 
 public class Person {
 	
-	private String firstName = "unknown";
+	private String firstName = "";
+	private String lastName = "";
 	private String zipCode = "";
 	private String pin = "";
+	private String dokogo = "";
 	private Date dateOfBirth = new Date();
+	private Date kiedy = new Date();
 	private double weight;
 	private boolean married;
 	private int numOfChildren;
+	
 	
 	@Size(min = 2, max = 20)
 	public String getFirstName() {
@@ -69,6 +74,26 @@ public class Person {
 	}
 	public void setMarried(boolean married) {
 		this.married = married;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	@Future
+	public Date getKiedy() {
+		return kiedy;
+	}
+	public void setKiedy(Date kiedy) {
+		this.kiedy = kiedy;
+	}
+	public String getDokogo() {
+		return dokogo;
+	}
+	public void setDokogo(String dokogo) {
+		this.dokogo = dokogo;
 	}
 	
 }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+	  template="/templates/default.xhtml">
+	  
+	<ui:define name="content">
+
+		<h:form id="personForm">
+            <f:event type="postValidate" listener="#{personBean.validatePinDob}" />
+            
+			<h:panelGrid columns="2">
+
+				<h:outputText value="#{msg.personFirstNameLabel}" />
+				<h:inputText id="firstName" value="#{personBean.person.firstName}" required="#{true}"/>
+
+				<h:outputText value="#{msg.personLastNameLabel}" />
+				<h:inputText id="lastName" value="#{personBean.person.lastName}" required="#{true}"/>
+
+				<h:outputText value="#{msg.personPinLabel}" />
+				<h:inputText id="pin" value="#{personBean.person.pin}"
+					validator="#{personBean.uniquePin}" required="#{true}">
+					<f:validator validatorId="pinValidator" />
+				</h:inputText>
+
+				<h:outputText value="#{msg.personDobLabel}" />
+
+				<rich:calendar value="#{personBean.person.dateOfBirth}"
+					id="dob" datePattern="dd.MM.yyyy" showApplyButton="#{true}"
+					cellWidth="24px" cellHeight="22px" style="width:200px">
+					<a4j:ajax render="messages" execute="@this" />
+				</rich:calendar>
+				
+				<h:outputText value="Do kogo" />
+				
+				<rich:select value="#{personBean.person.dokogo}">
+			            <f:selectItem itemValue="0" itemLabel="Option 1" />
+		                <f:selectItem itemValue="1" itemLabel="Option 2" />
+		                <f:selectItem itemValue="2" itemLabel="Option 3" />
+		                <f:selectItem itemValue="3" itemLabel="Option 4" />
+		                <f:selectItem itemValue="4" itemLabel="Option 5" />
+      			</rich:select>
+				
+				
+				<h:outputText value="Kiedy" />
+
+				<rich:calendar value="#{personBean.person.kiedy}"
+					id="kiedy" datePattern="dd.MM.yyyy" showApplyButton="#{true}"
+					cellWidth="24px" cellHeight="22px" style="width:200px">
+					<a4j:ajax render="messages" execute="@this" />
+				</rich:calendar>
+				
+				
+				
+				
+			</h:panelGrid>
+			
+			<h:commandButton value="#{msg.personFormOKButton}"
+				action="#{personBean.addPerson}" />
+
+
+			<h:panelGrid>
+				<h:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

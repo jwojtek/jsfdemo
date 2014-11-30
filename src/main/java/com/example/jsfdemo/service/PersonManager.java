@@ -15,12 +15,16 @@ public class PersonManager {
 		Person newPerson = new Person();
 
 		newPerson.setFirstName(person.getFirstName());
+		newPerson.setLastName(person.getLastName());
 		newPerson.setZipCode(person.getZipCode());
+		newPerson.setDokogo(person.getDokogo());
 		newPerson.setPin(person.getPin());
 		newPerson.setDateOfBirth(person.getDateOfBirth());
+		newPerson.setKiedy(person.getKiedy());
 		newPerson.setMarried(person.isMarried());
 		newPerson.setWeight(person.getWeight());
 		newPerson.setNumOfChildren(person.getNumOfChildren());
+
 
 		db.add(newPerson);
 	}
