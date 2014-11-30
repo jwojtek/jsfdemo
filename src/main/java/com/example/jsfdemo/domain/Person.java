@@ -10,6 +10,7 @@ import javax.validation.constraints.Size;
 
 public class Person {
 	
+	private int id;
 	private String firstName = "";
 	private String lastName = "";
 	private String zipCode = "";
@@ -94,6 +95,13 @@ public class Person {
 	}
 	public void setDokogo(String dokogo) {
 		this.dokogo = dokogo;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }
