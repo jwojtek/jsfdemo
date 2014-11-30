@@ -48,7 +48,7 @@ public class PersonFormBean implements Serializable {
 	// Actions
 	public String addPerson() {
 		pm.addPerson(person);
-		return "showPersons";
+		return "zapis";
 		//return null;
 	}
 
