@@ -18,6 +18,8 @@ public class Person {
 	private String dokogo = "";
 	private Date dateOfBirth = new Date();
 	private Date kiedy = new Date();
+	private String odkiedy;
+	private int dokiedy;
 	private double weight;
 	private boolean married;
 	private int numOfChildren;
@@ -103,5 +105,18 @@ public class Person {
 	public void setId(int id) {
 		this.id = id;
 	}
+	public String getOdkiedy() {
+		return odkiedy;
+	}
+	public void setOdkiedy(String odkiedy) {
+		this.odkiedy = odkiedy;
+	}
+	public int getDokiedy() {
+		return dokiedy;
+	}
+	public void setDokiedy(int dokiedy) {
+		this.dokiedy = dokiedy;
+	}
+
 	
 }

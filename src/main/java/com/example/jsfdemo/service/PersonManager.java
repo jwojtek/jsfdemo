@@ -63,5 +63,7 @@ import com.example.jsfdemo.domain.Person;
 			p.setNumOfChildren(person.getNumOfChildren());
 			p.setDokogo(person.getDokogo());
 			p.setKiedy(person.getKiedy());
+			p.setOdkiedy(person.getOdkiedy());
+			p.setDokiedy(person.getDokiedy());
 		}
 }

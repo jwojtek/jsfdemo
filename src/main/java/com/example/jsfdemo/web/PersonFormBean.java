@@ -80,6 +80,24 @@ import com.example.jsfdemo.service.PersonManager;
 		}
 	}
 	
+	
+	
+	public void uniqueGodz(FacesContext context, UIComponent component,
+			Object value) {
+		
+	
+		String odKiedy = (String) value;
+		
+		for (Person person : pm.getAllPersons()) {
+			if (person.getOdkiedy().equalsIgnoreCase(odKiedy)) {
+				FacesMessage message = new FacesMessage(
+							"Termin zajęty");
+				message.setSeverity(FacesMessage.SEVERITY_ERROR);
+				throw new ValidatorException(message);
+				}
+			}
+		}
+	
 	// Multi field validation with <f:event>
 	// Rule: first two digits of PIN must match last two digits of the year of
 	// birth
